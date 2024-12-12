@@ -81,8 +81,8 @@ char *game_name P((char *username));
 /*     688 */ int dopirate P((void ));
 /*     742 */ int stimer P((void ));
 #ifndef __QNX__
-/*     848 */ int srand P((int n ));
-/*     857 */ int rand P((void ));
+/* /\*     848 *\/ int srand P((int n )); */
+/* /\*     857 *\/ int rand P((void )); */
 #endif
 
 /* verb.c */

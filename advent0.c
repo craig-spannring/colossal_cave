@@ -11,19 +11,23 @@
 #include	<stdio.h>	/* drv = 1.1st file 2.def 3.A	*/
 #include	"advent.h"
 
-#ifndef __QNX__
-extern	int	fclose();
-extern	char	*fgets();
-extern	FILE	*fopen();
-extern	int	fprintf();
-extern	int	fputs();
-extern	long	ftell();
-extern	int	printf();
-#else
+/* #ifndef __QNX__ */
+/* extern	int	fclose(); */
+/* extern	char	*fgets(); */
+/* extern	FILE	*fopen(); */
+/* extern	int	fprintf(); */
+/* extern	int	fputs(); */
+/* extern	long	ftell(); */
+/* extern	int	printf(); */
+/* #else */
 #include <stdlib.h>
 #include <ctype.h>
-#define Ltoa(a,b) strlen(ltoa(a,b,10))
-#endif
+#include <string.h>
+
+/* #define Ltoa(a,b) strlen(ltoa(a,b,10)) */ 
+#define Ltoa(a,b) sprintf((b), "%ld", (long)(a))
+/* #endif */
+
 
 
 int
