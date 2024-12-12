@@ -1,11 +1,13 @@
 # Colossal Cave Adventure Makefile
 
+TOP_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+
 HEADERS= advcave.h advdec.h advdef.h advent.h advtext.h advword.h proto.h
 SRC= advent.c database.c english.c itverb.c turn.c verb.c
 OBJ= advent.o database.o english.o itverb.o turn.o verb.o
 DATA= advent1.txt advent2.txt advent3.txt advent4.txt
 
-CFLAGS= -O
+CFLAGS= -O -std=c89
 LDFLAGS=
 CC= cc
 
@@ -26,7 +28,7 @@ install:
 	cp -f $(DATA) /usr/local/lib/games
 
 advtext.h: advent0 $(DATA)
-	advent0
+	$(TOP_DIR)/advent0
 
 advent.o: advent.c $(HEADERS)
 database.o: database.c $(HEADERS)
