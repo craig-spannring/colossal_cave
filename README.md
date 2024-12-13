@@ -4,7 +4,7 @@
 Colossal Cave Adventure is a text based adventure game.  Originally
 written in Fortran running on a DEC PDP-10.
 
-[Colossal_Cave_Adventure](https://en.wikipedia.org/wiki/Colossal_Cave_Adventure)
+[Colossal Cave Adventure](https://en.wikipedia.org/wiki/Colossal_Cave_Adventure)
 
 
 ## Origin of This Version 
