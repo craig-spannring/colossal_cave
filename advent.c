@@ -209,7 +209,7 @@ void saveadv()
 #ifndef __QNX__
     printf("What do you want to name the saved game? ");
     gets(username);
-    if (sptr = strchr(username, '.'))
+    if ((sptr = strchr(username, '.')))
         *sptr = '\0';           /* kill extension       */
     if (strlen(username) > 8)
         username[8] = '\0';     /* max 8 char filename  */
@@ -336,14 +336,13 @@ void restore()
     describe();
 }
 
-char *game_name(filename)
-    char *filename;
+char *game_name(char *filename)
 {
 
     char *homedir;
 
     filename[0] = 0;
-    if(homedir = getenv("HOME")) {
+    if((homedir = getenv("HOME"))) {
         strcat(filename, homedir);
         strcat(filename, "/");
     }

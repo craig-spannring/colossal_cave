@@ -258,8 +258,7 @@ int forced(int atloc)
 /*
   Routine true x% of the time.
 */
-int pct(x)
-    int     x;
+int pct(int     x)
 {
     return(Rand() % 100 < x);
 }
@@ -268,8 +267,7 @@ int pct(x)
   Routine to tell if player is on
   either side of a two sided object.
 */
-int at(item)
-    int     item;
+int at(int item)
 {
     return(place[item] == loc || fixed[item] == loc);
 }
@@ -285,8 +283,7 @@ void dstroy(int obj)
 /*
   Routine to move an object
 */
-void move(obj, where)
-    int     obj, where;
+void move(int obj, int where)
 {
     int     from;
 
@@ -300,8 +297,7 @@ void move(obj, where)
   Juggle an object
   currently a no-op
 */
-void juggle(loc)
-    int     loc;
+void juggle(int loc)
 {
 }
 
@@ -337,8 +333,7 @@ void drop(int obj, int where)
   value used to set the negated prop values
   for the repository.
 */
-int put(obj, where, pval)
-    int     obj, where, pval;
+int put(int obj, int where, int pval)
 {
     move(obj, where);
     return((-1)-pval);
@@ -371,8 +366,7 @@ int liq()
 /*
   Determine liquid at a location
 */
-int liqloc(loc)
-    int     loc;
+int liqloc(int loc)
 {
     if (cond[loc]&LIQUID)
         return(liq2(cond[loc]&WATOIL));
@@ -385,8 +379,7 @@ int liqloc(loc)
   1 to nothing
   2 to OIL
 */
-int liq2(pbottle)
-    int     pbottle;
+int liq2(int pbottle)
 {
     return((1-pbottle)*WATER+(pbottle>>1)*(WATER+OIL));
 }
@@ -394,8 +387,7 @@ int liq2(pbottle)
 /*
   Fatal error routine
 */
-void bug(n)
-    int     n;
+void bug(int n)
 {
     printf("Fatal error number %d\n", n);
     exit(-1);
