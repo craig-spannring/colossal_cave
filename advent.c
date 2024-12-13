@@ -22,11 +22,6 @@ int main(int    argc,
          char** argv)
 {
 	int	rflag;		/* user restore request option	*/
-
-        for(int i=0; i<argc; ++i)
-        {
-            printf("%d: %s\n", i, argv[i]);
-        }
         
 	rflag = 0;
 	dbugflg = 0;
@@ -178,7 +173,7 @@ void initplay()
 #define ADV4 "/tmp/advent4.txt"
 #endif
 
-opentxt()
+void opentxt()
 {
 	fd1 = fopen(ADV1, "r");
 	if (!fd1) {

@@ -30,10 +30,7 @@
 
 
 
-int
-main(argc, argv)
-int	argc;
-char	**argv;
+int main(int argc, char** argv)
 {
 
 	FILE	*isam, *fd1, *fd2, *fd3, *fd4;

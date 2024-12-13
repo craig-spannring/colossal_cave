@@ -9,7 +9,7 @@
 /*      37 */ int  main P((int argc , char **argv ));
 /*      89 */ void scanint P((int *pi , char *str ));
 /*     106 */ void initplay P((void ));
-/*     180 */ int  opentxt P((void ));
+/*     180 */ void opentxt P((void ));
 /*     207 */ int  saveadv P((void ));
 /*     244 */ void restore P((void ));
 char *game_name P((char *username));
