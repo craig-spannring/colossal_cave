@@ -200,7 +200,7 @@ void opentxt()
 /*
 		save adventure game
 */
-saveadv()
+void saveadv()
 {
 	char	*sptr;
 	FILE	*savefd;
