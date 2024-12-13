@@ -4,3 +4,5 @@ advent0
 *.o
 advtext.h
 *~
+.DS_Store
+xcode
