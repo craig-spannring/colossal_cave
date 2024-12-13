@@ -10,7 +10,7 @@
 /*      89 */ void scanint P((int *pi , char *str ));
 /*     106 */ void initplay P((void ));
 /*     180 */ void opentxt P((void ));
-/*     207 */ int  saveadv P((void ));
+/*     207 */ void saveadv P((void ));
 /*     244 */ void restore P((void ));
 char *game_name P((char *username));
 
@@ -20,7 +20,7 @@ char *game_name P((char *username));
 /*      89 */ void rdskip P((FILE *fdi , int skipc , int n , int rewind ));
 /*     108 */ int yes P((int msg1 , int msg2 , int msg3 ));
 /*     130 */ void rspeak P((int msg ));
-/*     147 */ int pspeak P((int item , int state ));
+/*     147 */ void pspeak P((int item , int state ));
 /*     158 */ void desclg P((int loc ));
 /*     168 */ void descsh P((int loc ));
 /*     184 */ int vocab P((char *word , int val ));
@@ -32,8 +32,8 @@ char *game_name P((char *username));
 /*     275 */ int pct P((int x ));
 /*     285 */ int at P((int item ));
 /*     294 */ void dstroy P((int obj ));
-/*     303 */ int move P((int obj , int where ));
-/*     318 */ int juggle P((int loc ));
+/*     303 */ void move P((int obj , int where ));
+/*     318 */ void juggle P((int loc ));
 /*     326 */ void carry P((int obj , int where ));
 /*     340 */ void drop P((int obj , int where ));
 /*     357 */ int put P((int obj , int where , int pval ));
@@ -41,7 +41,7 @@ char *game_name P((char *username));
 /*     380 */ int liq P((void ));
 /*     391 */ int liqloc P((int loc ));
 /*     405 */ int liq2 P((int pbottle ));
-/*     414 */ int bug P((int n ));
+/*     414 */ void bug P((int n ));
 
 /* english.c */
 /*      21 */ int english P((void ));

@@ -54,9 +54,11 @@ void gettrav(int loc)
 	Function to scan a file up to a specified
 	point and either print or return a string.
 */
-rdupto(fdi, uptoc, print, string)
-FILE	*fdi;
-char	uptoc, print, *string;
+int rdupto(
+    FILE *fdi,
+    int   uptoc,
+    int   print,
+    char *string)
 {
 	int	c;
 
@@ -100,8 +102,7 @@ int	n;
 /*
 	Routine to request a yes or no answer to a question.
 */
-yes(msg1, msg2, msg3)
-int	msg1, msg2, msg3;
+int yes(int msg1, int msg2, int msg3)
 {
 	char	answer[80];
 
@@ -138,7 +139,7 @@ void rspeak(int msg)
 /*
 	Print an item message for a given state from "advent3.txt"
 */
-pspeak(int item, int state)
+void pspeak(int item, int state)
 {
 	fseek(fd3, idx3[item - 1], 0);
 	rdskip(fd3, '/', state+2, 0);
@@ -173,7 +174,7 @@ void descsh(int loc)
 		if != 0 return %1000
 */
 int vocab(char *word,
-           int val)
+          int   val)
 {
 	int	v1, v2;
 
@@ -195,7 +196,7 @@ int vocab(char *word,
 		return(-1);
 }
 
-binary(w, wctable, maxwc)
+int binary(w, wctable, maxwc)
 char	*w;
 int	maxwc;
 struct	wac	wctable[];
@@ -224,7 +225,7 @@ struct	wac	wctable[];
 /*
 	Routine to test for darkness
 */
-dark()
+int dark()
 {
 	return(!(cond[loc] & LIGHT) &&
 		(!prop[LAMP] ||
@@ -234,8 +235,7 @@ dark()
 /*
 	Routine to tell if an item is present.
 */
-here(item)
-int	item;
+int here(int item)
 {
 	return(place[item] == loc || toting(item));
 }
@@ -243,8 +243,7 @@ int	item;
 /*
 	Routine to tell if an item is being carried.
 */
-toting(item)
-int	item;
+int toting(int item)
 {
 	return(place[item] == -1);
 }
@@ -253,7 +252,7 @@ int	item;
 	Routine to tell if a location causes
 	a forced move.
 */
-forced(atloc)
+int forced(atloc)
 int	atloc;
 {
 	return(cond[atloc] == 2);
@@ -262,7 +261,7 @@ int	atloc;
 /*
 	Routine true x% of the time.
 */
-pct(x)
+int pct(x)
 int	x;
 {
 	return(rand() % 100 < x);
@@ -272,7 +271,7 @@ int	x;
 	Routine to tell if player is on
 	either side of a two sided object.
 */
-at(item)
+int at(item)
 int	item;
 {
 	return(place[item] == loc || fixed[item] == loc);
@@ -289,7 +288,7 @@ void dstroy(int obj)
 /*
 	Routine to move an object
 */
-move(obj, where)
+void move(obj, where)
 int	obj, where;
 {
 	int	from;
@@ -304,7 +303,7 @@ int	obj, where;
 	Juggle an object
 	currently a no-op
 */
-juggle(loc)
+void juggle(loc)
 int	loc;
 {
 }
@@ -389,7 +388,7 @@ int	loc;
 		 1 to nothing
 		 2 to OIL
 */
-liq2(pbottle)
+int liq2(pbottle)
 int	pbottle;
 {
 	return((1-pbottle)*WATER+(pbottle>>1)*(WATER+OIL));
@@ -398,7 +397,7 @@ int	pbottle;
 /*
 	Fatal error routine
 */
-bug(n)
+void bug(n)
 int	n;
 {
 	printf("Fatal error number %d\n", n);
