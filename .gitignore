@@ -1,4 +1,5 @@
 advent
+build
 advent0
 *.o
 advtext.h
