@@ -1,0 +1,53 @@
+cmake_minimum_required(VERSION 3.20)
+project(advent)
+
+set(CMAKE_C_STANDARD 90)
+
+
+
+# Set the dependencies for the custom command
+set(TEXT_FILES
+  ${CMAKE_CURRENT_LIST_DIR}/advent1.txt
+  ${CMAKE_CURRENT_LIST_DIR}/advent2.txt
+  ${CMAKE_CURRENT_LIST_DIR}/advent3.txt
+  ${CMAKE_CURRENT_LIST_DIR}/advent4.txt)
+
+# Add a custom command to generate advtext.h
+add_custom_command(
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/advtext.h
+    COMMAND echo advent0 ${TEXT_FILES} ${CMAKE_CURRENT_BINARY_DIR}/advtext.h 
+    COMMAND advent0 ${TEXT_FILES} ${CMAKE_CURRENT_BINARY_DIR}/advtext.h 
+    DEPENDS advent0 ${TEXT_FILES}
+    COMMENT "Generating advtext.h"
+)
+
+# Add a custom target to ensure the command is executed
+add_custom_target(generate_advtext ALL DEPENDS advtext.h)
+
+
+add_executable(advent advent.c)
+
+# Link the custom target with your main target if needed
+add_dependencies(advent generate_advtext)
+
+
+target_sources(advent PRIVATE
+  database.c
+  english.c             
+  itverb.c              
+  turn.c                
+  verb.c
+  
+  advcave.h
+  advdec.h
+  advdef.h
+  advent.h
+  advword.h
+  proto.h
+
+  ${CMAKE_CURRENT_BINARY_DIR}/advtext.h
+)
+
+target_include_directories(advent PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+
+add_executable(advent0 advent0.c)
