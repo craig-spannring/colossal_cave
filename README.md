@@ -24,3 +24,20 @@ The source code from Jay R. Jaegar was pre-ANSI C.  It has been
 modified to compile with more modern C compilers.  It is know to
 compile for MacOS and Ubuntu.  It will likely compile for any recent
 Unix-like operating system.
+
+## Build
+### Example of building with Linux or MacOS command line
+```sh
+mkdir build 
+cd build
+cmake -G 'Unix Makefiles' ../.
+make 
+```
+
+### MacOS XCode
+```sh
+mkdir xcbuild 
+cd xcbuild
+cmake -D CMAKE_C_COMPILER=$(xcrun -find cc) -D CMAKE_CXX_COMPILER=$(xcrun -find c++) -G Xcode ../.
+open advent.xcodeproj/
+```
