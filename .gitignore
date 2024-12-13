@@ -1,4 +1,4 @@
 advent0
-advent0.o
+*.o
 advtext.h
 *~
