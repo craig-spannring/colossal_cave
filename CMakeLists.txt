@@ -26,7 +26,6 @@ add_custom_target(generate_advtext ALL DEPENDS advtext.h)
 
 
 add_executable(advent advent.c)
-target_include_directories(advent PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 add_dependencies(advent generate_advtext)
 target_sources(advent PRIVATE
   database.c
