@@ -118,7 +118,7 @@ void turn()
 /*
 	Routine to describe current location
 */
-describe()
+void describe()
 {
 	if (toting(BEAR))
 		rspeak(141);
@@ -135,7 +135,7 @@ describe()
 /*
 	Routine to describe visible items
 */
-descitem()
+void descitem()
 {
 	int	i, state;
 
@@ -167,7 +167,7 @@ descitem()
 /*
 	Routine to handle motion requests
 */
-domove()
+void domove()
 {
 	gettrav(loc);
 	switch(motion) {
@@ -244,8 +244,7 @@ void goback()
 /*
 	Routine to copy a travel array
 */
-copytrv(trav1, trav2)
-struct trav *trav1, *trav2;
+void copytrv(struct trav *trav1, struct trav *trav2)
 {
 	int	i;
 
@@ -260,7 +259,7 @@ struct trav *trav1, *trav2;
 	Routine to figure out a new location
 	given current location and a motion.
 */
-dotrav()
+void dotrav()
 {
 	char	mvflag, hitflag, kk;
 	int	rdest, rverb, rcond, robject;
@@ -268,7 +267,7 @@ dotrav()
 
 	newloc = loc;
 	mvflag = hitflag = 0;
-	pctt = rand()%100;
+	pctt = Rand()%100;
 
 	for (kk = 0; travel[kk].tdest>=0 && !mvflag; ++kk) {
 		rdest = travel[kk].tdest;
@@ -328,7 +327,7 @@ dotrav()
 /*
 	The player tried a poor move option.
 */
-badmove()
+void badmove()
 {
 	int	msg;
 
@@ -574,7 +573,7 @@ void trobj()
 /*
 	Routine to print word corresponding to object
 */
-char *probj(object)
+char *probj(int object)
 {
 	int	wtype, wval;
 	analyze(word1, &wtype, &wval);
@@ -609,7 +608,7 @@ void dwarves()
 		++dflag;
 		for (i = 1; i<3; ++i)
 			if (pct (50))
-				dloc[rand()%5+1] = 0;
+				dloc[Rand()%5+1] = 0;
 		for (i = 1; i< (DWARFMAX-1); ++i) {
 			if (dloc[i] == newloc)
 				dloc[i] = daltloc;
@@ -629,7 +628,7 @@ void dwarves()
 			as in the original version...
 		*/
 		for (try = 1; try<20; ++try) {
-			j = rand()%106+15; /* allowed area */
+			j = Rand()%106+15; /* allowed area */
 			if (j != odloc[i] && j != dloc[i] &&
 			    !(i == (DWARFMAX-1) && cond[j]&NOPIRAT == 1))
 				break;
@@ -654,7 +653,7 @@ void dwarves()
 				++attack;
 				if (knfloc >= 0)
 					knfloc = newloc;
-				if (rand()%1000 < 95*(dflag-2))
+				if (Rand()%1000 < 95*(dflag-2))
 					++stick;
 			}
 		}
@@ -860,7 +859,7 @@ short	n;
 /*
 	random number
 */
-rand()
+short Rand()
 {
 	rnum = rnum * 0x41C64E6D + 0x3039;
 	return((short)(rnum >> 16) & 0x7FFF);

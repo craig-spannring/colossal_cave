@@ -19,7 +19,7 @@ extern void ivfill();
 /*
 	Routines to process intransitive verbs
 */
-itverb()
+int itverb()
 {
 	switch(verb) {
 	case DROP:
@@ -193,7 +193,7 @@ void iveat()
 /*
 	DRINK
 */
-ivdrink()
+void ivdrink()
 {
 	if(liqloc(loc) != WATER &&
 	  (liq()!= WATER || !here(BOTTLE)))
@@ -207,7 +207,7 @@ ivdrink()
 /*
 	QUIT
 */
-ivquit()
+void ivquit()
 {
 	if(gaveup=yes(22,54,54))
 		normend();
@@ -286,7 +286,7 @@ ivread()
 /*
 	INVENTORY 
 */
-inventory()
+void inventory()
 {
 	char msg;
 	int i;
@@ -310,7 +310,7 @@ inventory()
 	ensure uniqueness as objects are searched
 	out for an intransitive verb
 */
-void addobj(obj)
+void addobj(int obj)
 {
 	if(object1 != 0)
 		return;

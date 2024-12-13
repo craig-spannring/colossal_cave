@@ -20,7 +20,7 @@
 /*
 	Analyze a two word sentence
 */
-english()
+int english()
 {
 
 	char	*msg;
@@ -99,7 +99,7 @@ english()
 /*
 		Routine to analyze a word.
 */
-analyze(word, type, value)
+int analyze(word, type, value)
 char	*word;
 int	*type, *value;
 {
@@ -149,7 +149,7 @@ void getwords()
 	output adventure word list (motion/0xxx & verb/2xxx) only
 	6 words/line pausing at 20th line until keyboard active
 */
-outwords()
+void outwords()
 {
 	int	i, j, line;
 	char	words[80];

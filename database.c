@@ -26,7 +26,7 @@ void gettrav(int loc)
 	char	atrav[256], *aptr;
 
 	strcpy(atrav, cave[loc - 1]);
-	while (aptr = rindex(atrav, ','))
+	while ((aptr = rindex(atrav, ',')))
 		*aptr = '\0';		/* terminate substring	*/
 	aptr = &atrav[0];
 	for (i = 0; i < MAXTRAV; ++i) {
@@ -83,10 +83,11 @@ int rdupto(
 	of times, with or without repositioning
 	the file.
 */
-void rdskip(fdi, skipc, n, rewind)
-FILE	*fdi;
-char	skipc, rewind;
-int	n;
+void rdskip(
+    FILE	*fdi,
+    char	skipc,
+    int         n,
+    char        rewind)
 {
 	int	c;
 
@@ -196,10 +197,7 @@ int vocab(char *word,
 		return(-1);
 }
 
-int binary(w, wctable, maxwc)
-char	*w;
-int	maxwc;
-struct	wac	wctable[];
+int binary(char *w, struct wac wctable[], int maxwc)
 {
 	int	lo, mid, hi, check;
 
@@ -252,8 +250,7 @@ int toting(int item)
 	Routine to tell if a location causes
 	a forced move.
 */
-int forced(atloc)
-int	atloc;
+int forced(int atloc)
 {
 	return(cond[atloc] == 2);
 }
@@ -264,7 +261,7 @@ int	atloc;
 int pct(x)
 int	x;
 {
-	return(rand() % 100 < x);
+	return(Rand() % 100 < x);
 }
 
 /*
@@ -340,7 +337,7 @@ void drop(int obj, int where)
 	value used to set the negated prop values
 	for the repository.
 */
-put(obj, where, pval)
+int put(obj, where, pval)
 int	obj, where, pval;
 {
 	move(obj, where);
@@ -350,7 +347,7 @@ int	obj, where, pval;
 	Routine to check for presence
 	of dwarves..
 */
-dcheck()
+int dcheck()
 {
 	int	i;
 
@@ -363,7 +360,7 @@ dcheck()
 /*
 	Determine liquid in the bottle
 */
-liq()
+int liq()
 {
 	int	i, j;
 	i=prop[BOTTLE];
@@ -374,7 +371,7 @@ liq()
 /*
 	Determine liquid at a location
 */
-liqloc(loc)
+int liqloc(loc)
 int	loc;
 {
 	if (cond[loc]&LIQUID)

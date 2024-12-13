@@ -17,7 +17,7 @@ char *game_name P((char *username));
 /* database.c */
 /*      25 */ void gettrav P((int loc ));
 /*      62 */ int rdupto P((FILE *fdi , int uptoc , int print , char *string ));
-/*      89 */ void rdskip P((FILE *fdi , int skipc , int n , int rewind ));
+/*      89 */ void rdskip P((FILE *fdi , char skipc , int n , char rewind ));
 /*     108 */ int yes P((int msg1 , int msg2 , int msg3 ));
 /*     130 */ void rspeak P((int msg ));
 /*     147 */ void pspeak P((int item , int state ));
@@ -47,28 +47,28 @@ char *game_name P((char *username));
 /*      21 */ int english P((void ));
 /*     100 */ int analyze P((char *word , int *type , int *value ));
 /*     130 */ void getwords P((void ));
-/*     150 */ int outwords P((void ));
+/*     150 */ void outwords P((void ));
 
 /* itverb.c */
 /*      16 */ int itverb P((void ));
 /*      91 */ void ivtake P((void ));
 /*     116 */ void ivopen P((void ));
 /*     143 */ void ivkill P((void ));
-/*     193 */ int ivdrink P((void ));
-/*     207 */ int ivquit P((void ));
+/*     193 */ void ivdrink P((void ));
+/*     207 */ void ivquit P((void ));
 /*     231 */ void ivfoo P((void ));
-/*     288 */ int inventory P((void ));
+/*     288 */ void inventory P((void ));
 /*     312 */ void addobj P((int obj ));
 
 /* turn.c */
 /*      18 */ void turn P((void ));
-/*     116 */ int describe P((void ));
-/*     133 */ int descitem P((void ));
-/*     165 */ int domove P((void ));
+/*     116 */ void describe P((void ));
+/*     133 */ void descitem P((void ));
+/*     165 */ void domove P((void ));
 /*     199 */ void goback P((void ));
-/*     242 */ int copytrv P((struct trav *trav1 , struct trav *trav2 ));
-/*     258 */ int dotrav P((void ));
-/*     326 */ int badmove P((void ));
+/*     242 */ void copytrv P((struct trav *trav1 , struct trav *trav2 ));
+/*     258 */ void dotrav P((void ));
+/*     326 */ void badmove P((void ));
 /*     344 */ void spcmove P((int rdest ));
 /*     396 */ void dwarfend P((void ));
 /*     405 */ void normend P((void ));
@@ -81,8 +81,8 @@ char *game_name P((char *username));
 /*     688 */ void dopirate P((void ));
 /*     742 */ int stimer P((void ));
 #ifndef __QNX__
-/*     848 */ void Srand P((int n )); 
-/* /\*     857 *\/ int rand P((void )); */
+/*     848 */ void  Srand P((int n )); 
+/*     857 */ short Rand P((void )); 
 #endif
 
 /* verb.c */
@@ -91,22 +91,22 @@ char *game_name P((char *username));
 /*     182 */ void vdrop P((void ));
 /*     271 */ void vopen P((void ));
 /*     357 */ void vsay P((void ));
-/*     368 */ int von P((void ));
+/*     368 */ void von P((void ));
 /*     387 */ void voff P((void ));
 /*     400 */ void vwave P((void ));
 /*     417 */ void vkill P((void ));
 /*     484 */ void vpour P((void ));
 /*     523 */ void veat P((void ));
-/*     546 */ int vdrink P((void ));
+/*     546 */ void vdrink P((void ));
 /*     562 */ void vthrow P((void ));
 /*     658 */ void vfind P((void ));
 /*     681 */ void vfill P((void ));
 /*     721 */ void vfeed P((void ));
 /*     780 */ void vread P((void ));
-/*     816 */ int vblast P((void ));
+/*     816 */ void vblast P((void ));
 /*     834 */ void vbreak P((void ));
-/*     861 */ int vwake P((void ));
-/*     874 */ int actspk P((int verb ));
-/*     891 */ int needobj P((void ));
+/*     861 */ void vwake P((void ));
+/*     874 */ void actspk P((int verb ));
+/*     891 */ void needobj P((void ));
 
 #undef P

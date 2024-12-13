@@ -35,6 +35,10 @@ int main(int argc, char** argv)
 	FILE	*isam, *fd1, *fd2, *fd3, *fd4;
 	char	itxt[255], otxt[80], lstr[12];
 	int	cnt, llen;
+        char*   text1   = argc==1 ? "advent1.txt" : argv[1];
+        char*   text2   = argc==1 ? "advent2.txt" : argv[2];
+        char*   text3   = argc==1 ? "advent3.txt" : argv[3];
+        char*   text4   = argc==1 ? "advent4.txt" : argv[4];
         char*   outfile = argc==1 ? "advtext.h" : argv[5];
 
 	if (! (argc == 1 || argc == 6)) {
@@ -42,6 +46,10 @@ int main(int argc, char** argv)
 		exit(-1);
 	}
 
+        printf("text1 is %s\n", text1);
+        printf("text2 is %s\n", text2);
+        printf("text3 is %s\n", text3);
+        printf("text4 is %s\n", text4);
         printf("outfile is %s\n", outfile);
         
 	isam = fopen(outfile, "w");
@@ -49,22 +57,23 @@ int main(int argc, char** argv)
 		printf("Sorry, I can't open advtext.h...\n");
 		exit(-1);
 	}
-	fd1 = fopen(argc==1 ? "advent1.txt" : argv[1], "r");
+	fd1 = fopen(text1, "r");
 	if (!fd1) {
 		printf("Sorry, I can't open advent1.txt...\n");
 		exit(-1);
 	}
-	fd2 = fopen(argc==1 ? "advent2.txt" : argv[2], "r");
+	fd2 = fopen(text2, "r");
 	if (!fd2) {
 		printf("Sorry, I can't open advent2.txt...\n");
 		exit(-1);
 	}
-	fd3 = fopen(argc==1 ? "advent3.txt" : argv[3], "r");
+	fd3 = fopen(text3, "r");
 	if (!fd3) {
 		printf("Sorry, I can't open advent3.txt...\n");
 		exit(-1);
 	}
-	fd4 = fopen(argc==1 ? "advent4.txt" : argv[4], "r");
+
+	fd4 = fopen(text4, "r");
 	if (!fd4) {
 		printf("Sorry, I can't open advent4.txt...\n");
 		exit(-1);

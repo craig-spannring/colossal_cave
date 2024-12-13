@@ -371,7 +371,7 @@ void vsay()
 /*
 	ON etc.
 */
-von()
+void von()
 {
 	if (!here(LAMP))
 		actspk(verb);
@@ -549,7 +549,7 @@ void veat()
 /*
 	DRINK
 */
-vdrink()
+void vdrink()
 {
 	if (object != WATER)
 		rspeak(110);
@@ -819,7 +819,7 @@ void vread()
 /*
 	BLAST etc.
 */
-vblast()
+void vblast()
 {
 	if (prop[ROD2] < 0 || !closed)
 		actspk(verb);
@@ -864,7 +864,7 @@ void vbreak()
 /*
 	WAKE etc.
 */
-vwake()
+void vwake()
 {
 	if (object != DWARF || !closed)
 		actspk(verb);
@@ -877,8 +877,7 @@ vwake()
 /*
 	Routine to speak default verb message
 */
-actspk(verb)
-int verb;
+void actspk(int verb)
 {
 	char i;
 
@@ -894,7 +893,7 @@ int verb;
 	object for verb found.  Used mostly by
 	intransitive verbs.
 */
-needobj()
+void needobj()
 {
 	int wtype,wval;
 
