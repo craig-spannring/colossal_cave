@@ -22,17 +22,12 @@ add_custom_command(
     DEPENDS advent0 ${TEXT_FILES}
     COMMENT "Generating advtext.h"
 )
-
-# Add a custom target to ensure the command is executed
 add_custom_target(generate_advtext ALL DEPENDS advtext.h)
 
 
 add_executable(advent advent.c)
-
-# Link the custom target with your main target if needed
+target_include_directories(advent PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 add_dependencies(advent generate_advtext)
-
-
 target_sources(advent PRIVATE
   database.c
   english.c             
@@ -49,7 +44,5 @@ target_sources(advent PRIVATE
 
   ${CMAKE_CURRENT_BINARY_DIR}/advtext.h
 )
-
-target_include_directories(advent PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(advent0 advent0.c)
