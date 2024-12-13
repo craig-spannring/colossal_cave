@@ -9,22 +9,18 @@
 #include	"advent.h"
 #include	"advdec.h"
 
-#ifndef __QNX__
-extern	int	printf();
-#else
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
 #define atoi atol
 #define rindex strchr
-#endif
 
 
 
 /*
 	Routine to take 1 turn
 */
-turn()
+void turn()
 {
 	char	i;
 	/*
@@ -205,7 +201,7 @@ domove()
 	Routine to handle request to return
 	from whence we came!
 */
-goback()
+void goback()
 {
 	int	kk, k2, want, temp;
 	struct trav strav[MAXTRAV];
@@ -350,7 +346,7 @@ badmove()
 /*
 	Routine to handle very special movement.
 */
-spcmove(rdest)
+void spcmove(rdest)
 int	rdest;
 {
 	switch(rdest-300) {
@@ -402,7 +398,7 @@ int	rdest;
 	Routine to handle player's demise via
 	waking up the dwarves...
 */
-dwarfend()
+void dwarfend()
 {
 	death();
 	normend();
@@ -411,7 +407,7 @@ dwarfend()
 /*
 	normal end of game
 */
-normend()
+void normend()
 {
 	score();
 	exit(-1);
@@ -420,7 +416,7 @@ normend()
 /*
 	scoring
 */
-score()
+void score()
 {
 	int	t, i, k, s;
 	s = t = k = 0;
@@ -473,7 +469,7 @@ score()
 	Routine to handle the passing on of one
 	of the player's incarnations...
 */
-death()
+void death()
 {
 	char	yea, i, j, k;
 
@@ -505,7 +501,7 @@ death()
 /*
 	Routine to process an object.
 */
-doobj()
+void doobj()
 {
 	char	i;
 	/*
@@ -566,7 +562,7 @@ doobj()
 	Routine to process an object being
 	referred to.
 */
-trobj()
+void trobj()
 {
 	if (verb)
 		trverb();
@@ -587,7 +583,7 @@ char *probj(object)
 /*
 	dwarf stuff.
 */
-dwarves()
+void dwarves()
 {
 	int	i, j, k, try, attack, stick, dtotal;
 	/*
@@ -694,7 +690,7 @@ dwarves()
 /*
 	pirate stuff
 */
-dopirate()
+void dopirate()
 {
 	int	j, k;
 	if (newloc == chloc || prop[CHEST] >= 0)
@@ -748,7 +744,7 @@ stealit:
 /*
 	special time limit stuff...
 */
-stimer()
+int stimer()
 {
 	int	i;
 	foobar = foobar > 0 ?  -foobar : 0;
@@ -855,7 +851,7 @@ stimer()
 */
 static	long	rnum = 0;
 
-srand(n)
+void Srand(n)
 short	n;
 {
 	rnum = (long)n;

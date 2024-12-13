@@ -9,6 +9,12 @@
 #include	"advent.h"
 #include	"advdec.h"
 
+extern void iveat();
+extern void ivtake();
+extern void ivopen();
+extern void ivtake();
+extern void ivfill();
+
 
 /*
 	Routines to process intransitive verbs
@@ -87,7 +93,7 @@ itverb()
 /*
 	CARRY, TAKE etc.
 */
-ivtake()
+void ivtake()
 {
 	int anobj,item;
 
@@ -112,7 +118,7 @@ ivtake()
 /*
 	OPEN, LOCK, UNLOCK
 */
-ivopen()
+void ivopen()
 {
 	if(here(CLAM))
 		object=CLAM;
@@ -139,7 +145,7 @@ ivopen()
 /*
 	ATTACK, KILL etc
 */
-ivkill()
+void ivkill()
 {
 	object1 = 0;
 	if(dcheck() && dflag >=2)
@@ -174,7 +180,7 @@ ivkill()
 /*
 	EAT
 */
-iveat()
+void iveat()
 {
 	if(!here(FOOD))
 		needobj();
@@ -210,7 +216,7 @@ ivquit()
 /*
 	FILL
 */
-ivfill()
+void ivfill()
 {
 	if(!here(BOTTLE))
 		needobj();
@@ -223,7 +229,7 @@ ivfill()
 /*
 	Handle fee fie foe foo...
 */
-ivfoo()
+void ivfoo()
 {
 	char k,msg;
 	k = vocab(word1,3000);
@@ -304,7 +310,7 @@ inventory()
 	ensure uniqueness as objects are searched
 	out for an intransitive verb
 */
-addobj(obj)
+void addobj(obj)
 {
 	if(object1 != 0)
 		return;

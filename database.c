@@ -9,29 +9,17 @@
 #include	"advent.h"
 #include	"advdec.h"
 
-#ifndef __QNX__
-extern	long	atoi();
-extern	int	fgetc();
-extern	char	*fgets();
-extern	int	fputc();
-extern	long	fseek();
-extern	char	*rindex();
-extern	char	*strcpy();
-extern	int	tolower();
-#else
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
 #define atoi atol
 #define rindex strrchr
-#endif
 
 
 /*
 	Routine to fill travel array for a given location
 */
-gettrav(loc)
-int	loc;
+void gettrav(int loc)
 {
 	int	i;
 	long	t;
@@ -93,7 +81,7 @@ char	uptoc, print, *string;
 	of times, with or without repositioning
 	the file.
 */
-rdskip(fdi, skipc, n, rewind)
+void rdskip(fdi, skipc, n, rewind)
 FILE	*fdi;
 char	skipc, rewind;
 int	n;
@@ -134,8 +122,7 @@ int	msg1, msg2, msg3;
 /*
 	Print a location description from "advent4.txt"
 */
-rspeak(msg)
-int	msg;
+void rspeak(int msg)
 {
 	if (msg == 54)
 		printf("ok.\n");
@@ -151,8 +138,7 @@ int	msg;
 /*
 	Print an item message for a given state from "advent3.txt"
 */
-pspeak(item, state)
-int	item, state;
+pspeak(int item, int state)
 {
 	fseek(fd3, idx3[item - 1], 0);
 	rdskip(fd3, '/', state+2, 0);
@@ -162,8 +148,7 @@ int	item, state;
 /*
 	Print a long location description from "advent1.txt"
 */
-desclg(loc)
-int	loc;
+void desclg(int loc)
 {
 	fseek(fd1, idx1[loc - 1], 0);
 	rdupto(fd1, '#', 1, 0);
@@ -172,8 +157,7 @@ int	loc;
 /*
 	Print a short location description from "advent2.txt"
 */
-descsh(loc)
-int	loc;
+void descsh(int loc)
 {
 	fseek(fd2, idx2[loc - 1], 0);
 	rdupto(fd2, '#', 1, 0);
@@ -188,9 +172,8 @@ int	loc;
 	val  is the minimum acceptable value,
 		if != 0 return %1000
 */
-vocab(word, val)
-char	*word;
-int	val;
+int vocab(char *word,
+           int val)
 {
 	int	v1, v2;
 
@@ -298,8 +281,7 @@ int	item;
 /*
 	Routine to destroy an object
 */
-dstroy(obj)
-int	obj;
+void dstroy(int obj)
 {
 	move(obj, 0);
 }
@@ -330,8 +312,7 @@ int	loc;
 /*
 	Routine to carry an object
 */
-carry(obj, where)
-int	obj, where;
+void carry(int obj, int where)
 {
 	if (obj<MAXOBJ){
 		if (place[obj] == -1)
@@ -344,8 +325,7 @@ int	obj, where;
 /*
 	Routine to drop an object
 */
-drop(obj, where)
-int	obj, where;
+void drop(int obj, int where)
 {
 	if (obj<MAXOBJ) {
 		if (place[obj] == -1)

@@ -11,36 +11,23 @@
 #include	"advcave.h"	/* definition of "cave" array	*/
 #include	"advtext.h"	/* definition of "text" arrays	*/
 #include	"advdef.h"
+#include	"proto.h"
 
-#ifndef __QNX__
-#define	strchr	index
-
-extern	int	fclose();
-extern	int	fgetc();
-extern	FILE	*fopen();
-extern	int	fputc();
-extern	long	ftell();
-extern	int	printf();
-extern	int	setmem();
-extern	int	scanf();
-extern	int	sscanf();
-extern	char	*strcat();
-extern	char	*strchr();
-extern	unsigned	strlen();
-extern	int	tolower();
-#else
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
 #define setmem(l,s,c)  memset(l,c,s)
-#endif
 
-main(argc, argv)
-int	argc;
-char	**argv;
+int main(int    argc,
+         char** argv)
 {
 	int	rflag;		/* user restore request option	*/
 
+        for(int i=0; i<argc; ++i)
+        {
+            printf("%d: %s\n", i, argv[i]);
+        }
+        
 	rflag = 0;
 	dbugflg = 0;
 	while (--argc > 0) {
@@ -70,7 +57,7 @@ char	**argv;
 	else
 		limit = 330;
 	saveflg = 0;
-	srand(511);				/* seed random	*/
+	Srand(511);				/* seed random	*/
 	while(!saveflg)
 		turn();
 	if (saveflg)
@@ -87,9 +74,9 @@ char	**argv;
 /*
 	Initialize integer arrays with sscanf
 */
-scanint(pi, str)
-int	*pi;
-char	*str;
+void scanint(
+    int	  *pi,
+    char  *str)
 {
 
 	while (*str) {
@@ -104,7 +91,7 @@ char	*str;
 /*
 	Initialization of adventure play variables
 */
-initplay()
+void initplay()
 {
 	turns = 0;
 
@@ -179,10 +166,17 @@ initplay()
 	Open advent?.txt files
 */
 
+#if 0
 #define ADV1 "/usr/local/lib/games/advent1.txt"
 #define ADV2 "/usr/local/lib/games/advent2.txt"
 #define ADV3 "/usr/local/lib/games/advent3.txt"
 #define ADV4 "/usr/local/lib/games/advent4.txt"
+#else 
+#define ADV1 "/tmp/advent1.txt"
+#define ADV2 "/tmp/advent2.txt"
+#define ADV3 "/tmp/advent3.txt"
+#define ADV4 "/tmp/advent4.txt"
+#endif
 
 opentxt()
 {
@@ -280,7 +274,7 @@ saveadv()
 /*
 	restore saved game handler
 */
-restore()
+void restore()
 {
 	char	username[64];
 	FILE *restfd;

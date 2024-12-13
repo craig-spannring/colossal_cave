@@ -9,18 +9,11 @@
 #include	"advent.h"
 #include	"advdec.h"
 
-#ifndef __QNX__
-extern	char	*fgets();
-extern	int	fputc();
-extern	int	printf();
-extern	int	sscanf();
-#else
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
 #define atoi atol
 #define rindex strchr
-#endif
 
 
 
@@ -136,7 +129,7 @@ int	*type, *value;
 	retrieve input line (max 80 chars), convert to lower case
 	 & rescan for first two words (max. WORDSIZE-1 chars).
 */
-getwords()
+void getwords()
 {
 	char	words[80], *wptr;
 

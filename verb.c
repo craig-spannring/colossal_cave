@@ -9,19 +9,17 @@
 #include	"advent.h"
 #include	"advdec.h"
 
-#ifdef __QNX__
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
 #define atoi atol
 #define rindex strchr
-#endif
 
 
 /*
 	Routine to process a transitive verb
 */
-trverb()
+void trverb()
 {
 	switch(verb){
 	case CALM:
@@ -111,7 +109,7 @@ trverb()
 /*
 	CARRY TAKE etc.
 */
-vtake()
+void vtake()
 {
 	char msg;
 	int i;
@@ -187,7 +185,7 @@ vtake()
 /*
 	DROP etc.
 */
-vdrop()
+void vdrop()
 {
 	int i;
 
@@ -276,7 +274,7 @@ vdrop()
 /*
 	LOCK, UNLOCK, OPEN, CLOSE etc.
 */
-vopen()
+void vopen()
 {
 	char msg,oyclam;
 
@@ -362,7 +360,7 @@ vopen()
 /*
 	SAY etc.
 */
-vsay()
+void vsay()
 {
 	int wtype,wval;
 
@@ -392,7 +390,7 @@ von()
 /*
 	OFF etc.
 */
-voff()
+void voff()
 {
 	if (!here(LAMP))
 		actspk(verb);
@@ -405,7 +403,7 @@ voff()
 /*
 	WAVE etc.
 */
-vwave()
+void vwave()
 {
 	if (!toting(object) &&
 	   (object != ROD || !toting(ROD2)))
@@ -422,7 +420,7 @@ vwave()
 /*
 	ATTACK, KILL etc.
 */
-vkill()
+void vkill()
 {
 	char msg;
 	int i;
@@ -489,7 +487,7 @@ vkill()
 /*
 	POUR
 */
-vpour()
+void vpour()
 {
 	if (object == BOTTLE || object == 0)
 		object = liq();
@@ -528,7 +526,7 @@ vpour()
 /*
 	EAT
 */
-veat()
+void veat()
 {
 	char msg;
 
@@ -567,7 +565,7 @@ vdrink()
 /*
 	THROW etc.
 */
-vthrow()
+void vthrow()
 {
 	char msg;
 	int i;
@@ -663,7 +661,7 @@ vthrow()
 /*
 	INVENTORY, FIND etc.
 */
-vfind()
+void vfind()
 {
 	char msg;
 	if (toting(object))
@@ -686,7 +684,7 @@ vfind()
 /*
 	FILL
 */
-vfill()
+void vfill()
 {
 	char msg;
 	int i;
@@ -726,7 +724,7 @@ vfill()
 /*
 	FEED
 */
-vfeed()
+void vfeed()
 {
 	char msg;
 
@@ -785,7 +783,7 @@ vfeed()
 /*
 	READ etc.
 */
-vread()
+void vread()
 {
 	char msg;
 
@@ -839,7 +837,7 @@ vblast()
 /*
 	BREAK etc.
 */
-vbreak()
+void vbreak()
 {
 	char msg;
 	if (object == MIRROR) {
