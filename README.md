@@ -21,4 +21,6 @@ This version is based on BDS C Adventure.  From
 > executable and an OS/2 executable.
 
 The source code from Jay R. Jaegar was pre-ANSI C.  It has been
-modified to compile with more modern C compilers.
+modified to compile with more modern C compilers.  It is know to
+compile for MacOS and Ubuntu.  It will likely compile for any recent
+Unix-like operating system.
