@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(advent)
 
-set(CMAKE_C_STANDARD 90)
+set(CMAKE_C_STANDARD 99)
 
 
 
@@ -11,6 +11,8 @@ set(TEXT_FILES
   ${CMAKE_CURRENT_LIST_DIR}/advent2.txt
   ${CMAKE_CURRENT_LIST_DIR}/advent3.txt
   ${CMAKE_CURRENT_LIST_DIR}/advent4.txt)
+
+file(COPY ${TEXT_FILES} DESTINATION /tmp/.)
 
 # Add a custom command to generate advtext.h
 add_custom_command(
