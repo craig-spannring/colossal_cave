@@ -111,7 +111,7 @@ void trverb()
 */
 void vtake()
 {
-    char msg;
+    int msg;
     int i;
 
     if (toting(object)) {
@@ -276,7 +276,8 @@ void vdrop()
 */
 void vopen()
 {
-    char msg,oyclam;
+    int  msg;
+    char oyclam;
 
     switch(object) {
         case CLAM:
@@ -422,7 +423,7 @@ void vwave()
 */
 void vkill()
 {
-    char msg;
+    int msg;
     int i;
 
     switch(object) {
@@ -528,7 +529,7 @@ void vpour()
 */
 void veat()
 {
-    char msg;
+    int msg;
 
     switch(object) {
         case FOOD:
@@ -567,7 +568,7 @@ void vdrink()
 */
 void vthrow()
 {
-    char msg;
+    int msg;
     int i;
 
     if (toting(ROD2) && object == ROD && !toting(ROD))
@@ -610,7 +611,7 @@ void vthrow()
     /*
       at a dwarf...
     */
-    if (i = dcheck()) {
+    if ((i = dcheck())) {
         msg = 48;
         if (pct(33)) {
             dseen[i] = dloc[i] = 0;
@@ -663,7 +664,7 @@ void vthrow()
 */
 void vfind()
 {
-    char msg;
+    int  msg;
     if (toting(object))
         msg = 24;
     else if (closed)
@@ -686,7 +687,7 @@ void vfind()
 */
 void vfill()
 {
-    char msg;
+    int msg;
     int i;
 
     switch(object) {
@@ -726,7 +727,7 @@ void vfill()
 */
 void vfeed()
 {
-    char msg;
+    int msg;
 
     switch(object) {
         case BIRD:
@@ -785,7 +786,7 @@ void vfeed()
 */
 void vread()
 {
-    char msg;
+    int msg;
 
     msg = 0;
     if (dark()) {
@@ -839,7 +840,7 @@ void vblast()
 */
 void vbreak()
 {
-    char msg;
+    int msg;
     if (object == MIRROR) {
         msg = 148;
         if (closed) {

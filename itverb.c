@@ -231,7 +231,8 @@ void ivfill()
 */
 void ivfoo()
 {
-    char k,msg;
+    int  k;
+    int  msg;
     k = vocab(word1,3000);
     msg = 42;
     if (foobar != 1-k) {
@@ -288,7 +289,7 @@ void ivfoo()
 */
 void inventory()
 {
-    char msg;
+    int msg;
     int i;
 
     msg = 98;
