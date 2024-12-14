@@ -64,6 +64,14 @@ int main(int    argc,
     exit(0);                            /* exit = ok    */
 }                                               /* main         */
 
+
+static char* Gets(char *s, int buf_len)
+{
+    char* result = buf_len>1 ? fgets(s, buf_len, stdin) : NULL;
+    s[0] = result ? s[0] : 0;
+    return result; 
+}
+
 /* ************************************************************ */
 
 /*
@@ -208,7 +216,7 @@ void saveadv()
 
 #ifndef __QNX__
     printf("What do you want to name the saved game? ");
-    gets(username);
+    Gets(username, sizeof(username));
     if ((sptr = strchr(username, '.')))
         *sptr = '\0';           /* kill extension       */
     if (strlen(username) > 8)
@@ -271,15 +279,15 @@ void saveadv()
 */
 void restore()
 {
-    char        username[64];
+    char  username[64];
     FILE *restfd;
-    int c;
-    char        *sptr;
+    int   c;
+    char *sptr;
 
 #ifndef __QNX__
     printf("What is the name of the saved game? ");
-    gets(username);
-    if (sptr = strchr(username, '.'))
+    Gets(username, sizeof(username));
+    if ((sptr = strchr(username, '.')))
         *sptr = '\0';           /* kill extension       */
     if (strlen(username) > 8)
         username[8] = '\0';     /* max 8 char filename  */
