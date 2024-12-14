@@ -19,7 +19,7 @@ extern void ivfill();
 /*
   Routines to process intransitive verbs
 */
-int itverb()
+void itverb()
 {
     switch(verb) {
         case DROP:
@@ -209,7 +209,7 @@ void ivdrink()
 */
 void ivquit()
 {
-    if(gaveup=yes(22,54,54))
+    if((gaveup=yes(22,54,54)))
         normend();
 }
 

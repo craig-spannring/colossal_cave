@@ -38,7 +38,7 @@ void turn()
       see if a dwarf has seen him and has come
       from where he wants to go.
     */
-    if (newloc != loc && !forced(loc) && cond[loc]&NOPIRAT  ==  0)
+    if (newloc != loc && !forced(loc) && (cond[loc]&NOPIRAT)  ==  0)
         for (i = 1; i< (DWARFMAX-1); ++i)
             if (odloc[i] == newloc && dseen[i]) {
                 newloc  =  loc;
@@ -345,8 +345,7 @@ void badmove()
 /*
   Routine to handle very special movement.
 */
-void spcmove(rdest)
-    int     rdest;
+void spcmove(int rdest)
 {
     switch(rdest-300) {
         case 1:  /* plover movement via alcove */
@@ -630,7 +629,7 @@ void dwarves()
         for (try = 1; try<20; ++try) {
             j = Rand()%106+15; /* allowed area */
             if (j != odloc[i] && j != dloc[i] &&
-                !(i == (DWARFMAX-1) && cond[j]&NOPIRAT == 1))
+                !(i == (DWARFMAX-1) && (cond[j]&NOPIRAT) == 1))
                 break;
         }
         if (j == 0)
@@ -850,8 +849,7 @@ int stimer()
 */
 static  long    rnum = 0;
 
-void Srand(n)
-    short   n;
+void Srand(int n)
 {
     rnum = (long)n;
 }
