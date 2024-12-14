@@ -24,25 +24,28 @@ add_custom_command(
 )
 add_custom_target(generate_advtext ALL DEPENDS advtext.h)
 
-
-add_executable(advent advent.c)
-target_include_directories(advent PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-add_dependencies(advent generate_advtext)
-target_sources(advent PRIVATE
+set(ADV_SRC
+  advent.c
   database.c
   english.c             
   itverb.c              
   turn.c                
   verb.c
-  
+)
+set(ADV_HDR
   advcave.h
   advdec.h
   advdef.h
   advent.h
   advword.h
   proto.h
-
+  
   ${CMAKE_CURRENT_BINARY_DIR}/advtext.h
 )
+
+add_executable(advent) #  advent.c)
+target_include_directories(advent PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+add_dependencies(advent generate_advtext)
+target_sources(advent PRIVATE ${ADV_SRC} ${ADV_HDR})
 
 add_executable(advent0 advent0.c)
