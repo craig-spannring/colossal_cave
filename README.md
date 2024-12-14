@@ -26,7 +26,8 @@ Unix-like operating system.
 
 The code, although it now compiles with modern C compilers, is still
 pretty old and crusty.  It serves mainly as an example of how not to
-write C code.  Functions primarily manipulate global variables. 
+write C code.  Functions primarily manipulate global variables.  The
+original code assumed unsigned characters.  
 
 ## Build
 ### Example of building with Linux or MacOS command line
