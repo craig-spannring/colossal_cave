@@ -137,7 +137,7 @@ void getwords()
     word1[0] = word2[0] = '\0';
     fgets(words, 80, stdin);
     wptr = words;
-    while (*wptr = tolower(*wptr))
+    while ((*wptr = tolower(*wptr)))
         ++wptr;
     sscanf(words, "%19s %19s", word1, word2);
     if (dbugflg)
