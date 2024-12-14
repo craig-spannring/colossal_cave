@@ -10,7 +10,6 @@ written in Fortran running on a DEC PDP-10.
 ## Origin of This Version 
 
 This version is based on BDS C Adventure.  From 
-
 [David Kinder's guide to Adventure downloads](https://rickadams.org/adventure/e_downloads.html)
 
 > From the Jay R. Jaegar converted the original Adventure to BDS C, and
@@ -24,6 +23,10 @@ The source code from Jay R. Jaegar was pre-ANSI C.  It has been
 modified to compile with more modern C compilers.  It is know to
 compile for MacOS and Ubuntu.  It will likely compile for any recent
 Unix-like operating system.
+
+The code, although it now compiles with modern C compilers, is still
+pretty old and crusty.  It serves mainly as an example of how not to
+write C code.  Functions primarily manipulate global variables. 
 
 ## Build
 ### Example of building with Linux or MacOS command line
