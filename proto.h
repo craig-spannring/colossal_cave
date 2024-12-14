@@ -50,7 +50,7 @@ char *game_name P((char *username));
 /*     150 */ void outwords P((void ));
 
 /* itverb.c */
-/*      16 */ int itverb P((void ));
+/*      16 */ void itverb P((void ));
 /*      91 */ void ivtake P((void ));
 /*     116 */ void ivopen P((void ));
 /*     143 */ void ivkill P((void ));
