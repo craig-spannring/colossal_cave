@@ -1,5 +1,8 @@
-/*      header ADVENT.H                                         *\
-\*      WARNING: HEADER file for all adventure modules          */
+/** 
+ * @file
+ * Header file for all adventure modules. 
+ */
+
 
 
 #define MAXOBJ  100             /* max # of objects in cave     */
@@ -15,7 +18,7 @@
 #define MAXTRS  79              /* max # of                     */
 
 /*
-Object definitions
+  Object definitions
 */
 #define KEYS    1
 #define LAMP    2
@@ -65,7 +68,7 @@ Object definitions
 #define CHAIN   64
 
 /*
-Verb definitions
+  Verb definitions
 */
 #define NULLX   21
 #define BACK    8
@@ -75,7 +78,7 @@ Verb definitions
 #define DEPRESSION      63
 
 /*
-Action verb definitions
+  Action verb definitions
 */
 #define TAKE    1
 #define DROP    2
@@ -112,7 +115,7 @@ Action verb definitions
 #define LOAD 33
 
 /*
-BIT mapping of "cond" array which indicates location status
+  BIT mapping of "cond" array which indicates location status
 */
 #define LIGHT   1
 #define WATOIL  2
@@ -125,17 +128,17 @@ BIT mapping of "cond" array which indicates location status
 #define HINT    240
 
 /*
-Structure definitions
+  Structure definitions
 */
 struct  wac {
-char    *aword;
-int     acode;
+        char    *aword;
+        int     acode;
 };
 
 struct  trav {
-int     tdest;
-int     tverb;
-int     tcond;
+        int     tdest;
+        int     tverb;
+        int     tcond;
 };
 
 
