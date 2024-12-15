@@ -1,3 +1,6 @@
+/** 
+ * @file 
+ */
 
 /*      header ADVDEC.H                                         *\
         \*      WARNING: GLOBAL EXTERNAL declarations for adventure     */

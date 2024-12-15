@@ -1,3 +1,6 @@
+/** 
+ * @file 
+ */
 
 /*      program ADVENT0.C                                       *\
         \*      execution will read the four adventure text files       *\

@@ -1,3 +1,7 @@
+/** 
+ * @file 
+ */
+
 #ifdef __STDC__
 # define        P(s) s
 #else

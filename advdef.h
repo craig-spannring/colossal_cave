@@ -1,3 +1,6 @@
+/** 
+ * @file 
+ */
 
 /*      header ADVDEF.H                                         *\
         \*      WARNING: GLOBAL variable allocations for adventure      */

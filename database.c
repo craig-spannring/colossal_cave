@@ -1,3 +1,6 @@
+/** 
+ * @file 
+ */
 
 /*      program DATABASE.C                                      *\
         \*      WARNING: "advent.c" allocates GLOBAL storage space by   *\
