@@ -6,8 +6,7 @@ set(CMAKE_C_STANDARD 99)
 find_package(Doxygen)
 
 
-# List of all text files that will be indexed by advent0
-set(TEXT_FILES
+set(TEXT_FILES # List of all text files that will be indexed by advent0
   ${CMAKE_CURRENT_LIST_DIR}/advent1.txt
   ${CMAKE_CURRENT_LIST_DIR}/advent2.txt
   ${CMAKE_CURRENT_LIST_DIR}/advent3.txt
@@ -59,6 +58,10 @@ target_sources(advent PRIVATE ${ADV_SRC} ${ADV_HDR} ${ADV_GENED_HDR})
 
 # Add commands to make doxydocs if we found doxygen
 if(DOXYGEN_FOUND)
+  #
+  # Note- Don't get your hopes up.  The source code doesn't really
+  # have any doxydocs comments.
+  # 
   configure_file(
     ${CMAKE_CURRENT_LIST_DIR}/Doxyfile.tmpl
     ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
@@ -71,7 +74,7 @@ if(DOXYGEN_FOUND)
     VERBATIM
     COMMAND_EXPAND_LISTS
   )
-  add_custom_target(docs DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/DoxyDocs/html/index.html)
+  add_custom_target(docs DEPENDS generate_advtext ${CMAKE_CURRENT_BINARY_DIR}/DoxyDocs/html/index.html)
 else()
   message("Doxygen package not found!  Can not generate doxydocs")
 endif() 
