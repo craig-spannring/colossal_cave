@@ -468,7 +468,7 @@ void vkill()
                 break;
             }
             if (!yes(49,0,0))
-                break;
+                return;
             pspeak(DRAGON,1);
             prop[DRAGON] = 2;
             prop[RUG] = 0;
