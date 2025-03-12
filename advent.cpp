@@ -9,12 +9,12 @@
 
 
 #include        <stdio.h>       /* drv = 1.1st file 2.def 3.A   */
-#include        "advent.h"      /* #define preprocessor equates */
-#include        "advword.h"     /* definition of "word" array   */
-#include        "advcave.h"     /* definition of "cave" array   */
-#include        "advtext.h"     /* definition of "text" arrays  */
-#include        "advdef.h"
-#include        "proto.h"
+#include        "advent.hpp"      /* #define preprocessor equates */
+#include        "advword.hpp"     /* definition of "word" array   */
+#include        "advcave.hpp"     /* definition of "cave" array   */
+#include        "advtext.hpp"     /* definition of "text" arrays  */
+#include        "advdef.hpp"
+#include        "proto.hpp"
 
 #include <ctype.h>
 #include <string.h>

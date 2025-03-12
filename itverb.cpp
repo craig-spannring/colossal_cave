@@ -9,8 +9,8 @@
 
 
 #include        <stdio.h>       /* drv = 1.1st file 2.def 3.A   */
-#include        "advent.h"
-#include        "advdec.h"
+#include        "advent.hpp"
+#include        "advdec.hpp"
 
 extern void iveat();
 extern void ivtake();

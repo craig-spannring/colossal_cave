@@ -12,7 +12,7 @@
 
 
 #include        <stdio.h>       /* drv = 1.1st file 2.def 3.A   */
-#include        "advent.h"
+#include        "advent.hpp"
 
 /* #ifndef __QNX__ */
 /* extern       int     fclose(); */
@@ -38,11 +38,11 @@ int main(int argc, char** argv)
     FILE    *isam, *fd1, *fd2, *fd3, *fd4;
     char    itxt[255], otxt[80], lstr[12];
     int     cnt, llen;
-    char*   text1   = argc==1 ? "advent1.txt" : argv[1];
-    char*   text2   = argc==1 ? "advent2.txt" : argv[2];
-    char*   text3   = argc==1 ? "advent3.txt" : argv[3];
-    char*   text4   = argc==1 ? "advent4.txt" : argv[4];
-    char*   outfile = argc==1 ? "advtext.h" : argv[5];
+    const char*   text1   = argc==1 ? "advent1.txt" : argv[1];
+    const char*   text2   = argc==1 ? "advent2.txt" : argv[2];
+    const char*   text3   = argc==1 ? "advent3.txt" : argv[3];
+    const char*   text4   = argc==1 ? "advent4.txt" : argv[4];
+    const char*   outfile = argc==1 ? "advtext.h" : argv[5];
 
     if (! (argc == 1 || argc == 6)) {
         printf("Usage: %s [ADVENT1_FILE ADVENT2_FILE ADVENT3_FILE ADVENT4_FILE OUTFILE.H]\n", argv[0]);

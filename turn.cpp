@@ -9,8 +9,8 @@
 
 
 #include        <stdio.h>       /* drv = 1.1st file 2.def 3.A   */
-#include        "advent.h"
-#include        "advdec.h"
+#include        "advent.hpp"
+#include        "advdec.hpp"
 
 #include <ctype.h>
 #include <string.h>
@@ -586,7 +586,7 @@ char *probj(int object)
 */
 void dwarves()
 {
-    int     i, j, k, try, attack, stick, dtotal;
+    int     i, j, k, attack, stick, dtotal;
     /*
       see if dwarves allowed here
     */
@@ -629,7 +629,7 @@ void dwarves()
           have a matrix around to do it
           as in the original version...
         */
-        for (try = 1; try<20; ++try) {
+        for (int tries = 1; tries<20; ++tries) {
             j = Rand()%106+15; /* allowed area */
             if (j != odloc[i] && j != dloc[i] &&
                 !(i == (DWARFMAX-1) && (cond[j]&NOPIRAT) == 1))

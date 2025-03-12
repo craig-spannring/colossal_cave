@@ -142,4 +142,4 @@ struct  trav {
 };
 
 
-#include "proto.h"
+#include "proto.hpp"

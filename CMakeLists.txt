@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
 project(advent)
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+# set(CMAKE_C_STANDARD 99)
 
 
 find_package(Doxygen)
@@ -15,35 +18,35 @@ set(TEXT_FILES # List of all text files that will be indexed by advent0
 # TODO- Figure out how we want to handle installing text files. 
 file(COPY ${TEXT_FILES} DESTINATION /tmp/.)
 
-# Add a custom command to generate advtext.h
+# Add a custom command to generate advtext.hpp
 add_custom_command(
-    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/advtext.h
-    COMMAND advent0 ${TEXT_FILES} ${CMAKE_CURRENT_BINARY_DIR}/advtext.h 
-    COMMENT "Generating advtext.h"
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/advtext.hpp
+    COMMAND advent0 ${TEXT_FILES} ${CMAKE_CURRENT_BINARY_DIR}/advtext.hpp 
+    COMMENT "Generating advtext.hpp"
 )
-add_custom_target(generate_advtext ALL DEPENDS advtext.h)
+add_custom_target(generate_advtext ALL DEPENDS advtext.hpp)
 
-add_executable(advent0 advent0.c)
+add_executable(advent0 advent0.cpp)
 
 
 set(ADV_SRC
-  advent.c
-  database.c
-  english.c             
-  itverb.c              
-  turn.c                
-  verb.c
+  advent.cpp
+  database.cpp
+  english.cpp             
+  itverb.cpp              
+  turn.cpp                
+  verb.cpp
 )
 set(ADV_HDR
-  advcave.h
-  advdec.h
-  advdef.h
-  advent.h
-  advword.h
-  proto.h
+  advcave.hpp
+  advdec.hpp
+  advdef.hpp
+  advent.hpp
+  advword.hpp
+  proto.hpp
 )
 set(ADV_GENED_HDR 
-  ${CMAKE_CURRENT_BINARY_DIR}/advtext.h
+  ${CMAKE_CURRENT_BINARY_DIR}/advtext.hpp
 )
 string(REPLACE ";" " " ADV_SRC_FILES "${ADV_SRC}")
 string(REPLACE ";" " " ADV_HDR_FILES "${ADV_HDR}")
